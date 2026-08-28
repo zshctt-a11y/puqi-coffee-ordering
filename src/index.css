@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 264 33% 97%;
+    --foreground: 262 60% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 262 60% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 262 60% 12%;
+    --primary: 262 69% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 40% 94%;
+    --secondary-foreground: 262 60% 20%;
+    --muted: 262 30% 94%;
+    --muted-foreground: 262 12% 48%;
+    --accent: 262 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 25% 90%;
+    --input: 262 25% 90%;
+    --ring: 262 69% 42%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC',
+      'Helvetica Neue', Arial, sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* ---- 微交互动画 ---- */
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes badge-bump {
+  0% {
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  70% {
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.anim-sheet {
+  animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0.35, 1) both;
+}
+.anim-fade {
+  animation: fade-in 0.2s ease-out both;
+}
+.anim-bump {
+  animation: badge-bump 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.anim-toast {
+  animation: toast-in 0.22s ease-out both;
+}
+.anim-pop {
+  animation: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
